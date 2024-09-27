@@ -10,7 +10,7 @@ public class ship : MonoBehaviour
     [SerializeField] private float _Interval = 3f;
     private float _timer;
     [SerializeField] private GameObject _junior;
-    int _index = -1;
+   
 
     // Start is called before the first frame update
     void Start()
