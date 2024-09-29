@@ -27,6 +27,7 @@ public class DISTANCE : MonoBehaviour
         Vector3 Direction = (_B.position - _A.position).normalized;
 
         float distance= (_B.position - _A.position).magnitude;
+
         if (distance < 5)
         {
             _SpriteRenderer.color = Color.green;

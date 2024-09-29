@@ -9,7 +9,7 @@ public class ship : MonoBehaviour
 
     [SerializeField] private float _Interval = 3f;
     private float _timer;
-    [SerializeField] private GameObject _junior;
+   // [SerializeField] private GameObject _junior;
    
 
     // Start is called before the first frame update
@@ -46,7 +46,7 @@ public class ship : MonoBehaviour
 
         EscapeShip.GoRightFunction();
 
-        Destroy(EscapeShip.gameObject, 20f);
+        Destroy(EscapeShip.gameObject, 15f);
 
     }
 }

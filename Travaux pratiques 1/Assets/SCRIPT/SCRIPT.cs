@@ -8,15 +8,15 @@ public class SCRIPT : MonoBehaviour
     
     [SerializeField] public float _speed;
 
-    private Rigidbody _rigidbody;
-    private float _rotationspeed=30f;
-    private float a=1f;
-    private float b;
+    private Rigidbody2D _rigidbody;
+    private float _rotationspeed=12f;
+    private float _acceleration=3f;
+    private float _maxSpeed=1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody2D>();
         if (_rigidbody == null)
         {
             Debug.LogError("Rigidbody component is missing from this GameObject.");
@@ -25,7 +25,7 @@ public class SCRIPT : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKey(KeyCode.A)) {
             transform.Rotate(new Vector3(0, 0, _rotationspeed * Time.deltaTime));
@@ -42,17 +42,25 @@ public class SCRIPT : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            _speed += a * Time.deltaTime;
+            _speed += _acceleration* Time.deltaTime;
+
+            if (_speed >= _maxSpeed) {
+                _speed = _maxSpeed;
+
+                }
 
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-           _speed -=a* Time.deltaTime;
-
+           _speed -=_acceleration* Time.deltaTime;
+                }
+            if (_speed <= 0)
+        {
+            _speed =0;
         }
 
-       //rigidbody.velocity = transform.up*_speed;
+       _rigidbody.velocity = transform.up*_speed;
 
 
 
