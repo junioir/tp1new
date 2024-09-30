@@ -17,10 +17,7 @@ public class SCRIPT : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        if (_rigidbody == null)
-        {
-            Debug.LogError("Rigidbody component is missing from this GameObject.");
-        }
+       
 
     }
 
@@ -30,7 +27,7 @@ public class SCRIPT : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) {
             transform.Rotate(new Vector3(0, 0, _rotationspeed * Time.deltaTime));
 
-     }
+                    }
 
 
         if (Input.GetKey(KeyCode.D))
@@ -54,15 +51,17 @@ public class SCRIPT : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
            _speed -=_acceleration* Time.deltaTime;
-                }
+                
             if (_speed <= 0)
         {
             _speed =0;
         }
+        }
 
-       _rigidbody.velocity = transform.up*_speed;
+        _rigidbody.velocity = transform.up*_speed;
 
 
 
-    }    
-}
+    }
+} 
+
