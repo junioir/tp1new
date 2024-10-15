@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - VaisseauFuyant
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - GroundLayer
   - Water
   - UI
   - 
