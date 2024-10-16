@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController2 : MonoBehaviour
+public class Player : MonoBehaviour
 {
-
     [SerializeField] private float _moveSpeed = 5f;       // Vitesse de déplacement gauche-droite
     [SerializeField] private float _jumpForce = 5f;      // Force du saut
     [SerializeField] private LayerMask _groundLayer;      // La couche qui représente le sol

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     [SerializeField] private float _JumpSpeed = 3f;
     [SerializeField] private float _MoveSpeed = 5f;
     [SerializeField] private SpriteRenderer _SpriteRenderer;
-   
+    //[SerializeField] private List<int> _newlist;
     private Rigidbody2D _rg;
     private Vector2 _Velocity;
     private bool isTouching;
@@ -16,7 +17,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        //  _newlist.RemoveAt(_newlist.Count );
+        //Debug.Log(_newlist.Count);
 
 
         _rg = GetComponent<Rigidbody2D>();
@@ -56,18 +58,25 @@ public class PlayerController : MonoBehaviour
 
         //to control jumping
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.Space))
         {
             _Velocity.y = _JumpSpeed;//set vertical velocity for jumping
-          
+
 
         }
-        else if (Input.GetKey(KeyCode.S)) {
 
-            _Velocity.y = - _JumpSpeed;
+        else
+        {
+            _Velocity.y = -_JumpSpeed;//set vertical velocity for jumping
+
 
         }
 
         _rg.velocity = _Velocity;//THis apply the updated velocity
     }
+
+
 }
+
+
+
