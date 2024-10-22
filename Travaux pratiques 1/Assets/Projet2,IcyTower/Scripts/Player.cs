@@ -11,11 +11,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float _groundCheckRadius = 0.1f;  // Rayon de détection du sol
     private bool _isGrounded;           // Est-ce que le joueur touche le sol ?
 
+    //[SerializeField] Animator animator;
+
     [SerializeField] private Rigidbody2D _rb;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        //animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -23,6 +26,16 @@ public class Player : MonoBehaviour
         Move();
         Jump();
         CheckGround();
+
+       /* float characterVelocity=Mathf.Abs(_rb.velocity.x);
+
+        animator.SetFloat("_speed", characterVelocity);
+
+        if (_isGrounded==true)
+        {
+            animator.SetBool("Isjumped", _isGrounded);
+        }
+        */
     }
 
     void Move()
