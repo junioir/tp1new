@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class Player : MonoBehaviour
 {
@@ -11,14 +12,15 @@ public class Player : MonoBehaviour
     [SerializeField] private float _groundCheckRadius = 0.1f;  // Rayon de détection du sol
     private bool _isGrounded;           // Est-ce que le joueur touche le sol ?
 
-    //[SerializeField] Animator animator;
-
+    [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer SpriteRenderer;
     [SerializeField] private Rigidbody2D _rb;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+        SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -27,15 +29,17 @@ public class Player : MonoBehaviour
         Jump();
         CheckGround();
 
-       /* float characterVelocity=Mathf.Abs(_rb.velocity.x);
+        flip(_rb.velocity.x);
+
+       float characterVelocity=Mathf.Abs(_rb.velocity.x);
 
         animator.SetFloat("_speed", characterVelocity);
 
-        if (_isGrounded==true)
+        if (_isGrounded && Input.GetKey(KeyCode.Space))
         {
             animator.SetBool("Isjumped", _isGrounded);
         }
-        */
+        
     }
 
     void Move()
@@ -58,5 +62,17 @@ public class Player : MonoBehaviour
     {
         // Utilisation d'un Raycast pour vérifier si le joueur est au sol
         _isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _groundCheckRadius, _groundLayer);
+    }
+
+    void flip(float _velocity)
+    {
+        if (_velocity > 0.1f) {
+
+            SpriteRenderer.flipX = false;
+ } 
+        
+        else if(_velocity < -0.1f) {
+            SpriteRenderer.flipY = true;
+        }
     }
 }
