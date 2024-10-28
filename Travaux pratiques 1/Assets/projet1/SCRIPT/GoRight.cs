@@ -15,4 +15,14 @@ public class GoRight : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Vector3.right * _speed;
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("Player"))
+        {
+
+            Destroy(collision.gameObject);
+        }
+    }
 }

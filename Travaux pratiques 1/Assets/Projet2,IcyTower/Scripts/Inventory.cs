@@ -6,7 +6,10 @@ using TMPro;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private int _CountCoin;
+    [SerializeField] private int _CountPinkgerm;
     [SerializeField] private TextMeshProUGUI _CountCoinText;
+
+    [SerializeField] private TextMeshProUGUI _CountGermText;
     public static Inventory _Instance;
 
     private void Awake()
@@ -20,11 +23,14 @@ public class Inventory : MonoBehaviour
         _Instance = this;
     }
 
-    public void Addcoin(int coin)
+    public void Addcoin(int coin,int Germ)
         { 
         
         _CountCoin += coin; 
         _CountCoinText.text = _CountCoin.ToString();
-            
+
+        _CountPinkgerm += Germ;
+       _CountGermText.text = _CountPinkgerm.ToString();
+
     }
 }

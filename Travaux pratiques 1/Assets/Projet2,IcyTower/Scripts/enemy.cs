@@ -10,7 +10,10 @@ public class enemy : MonoBehaviour
     private Transform _targets;
     private int _despoint;
     [SerializeField] private SpriteRenderer _graphics;
-    
+
+   // [SerializeField] private AudioClip _Sound;
+  //  [SerializeField] private AudioSource _Audiosource;
+
     void Start()
     {
         _targets = _waypoints[0];
@@ -41,6 +44,8 @@ public class enemy : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
+           // AudioClip.Play();
+
             
             Destroy(collision.gameObject);
         }

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer SpriteRenderer;
     [SerializeField] private Rigidbody2D _rb;
+    internal float jumpForce;
 
     void Start()
     {

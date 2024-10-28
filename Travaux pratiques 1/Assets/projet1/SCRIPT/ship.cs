@@ -9,8 +9,8 @@ public class ship : MonoBehaviour
 
     [SerializeField] private float _Interval = 3f;
     private float _timer;
-   // [SerializeField] private GameObject _junior;
-   
+    // [SerializeField] private GameObject _junior;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,19 +22,19 @@ public class ship : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-            if (_timer > _Interval)
+        if (_timer > _Interval)
 
-        {        
-                instantiate();
+        {
+            instantiate();
 
-               _timer = 0;
+            _timer = 0;
         }
 
-        }
-   
+    }
 
 
-    private void instantiate() 
+
+    private void instantiate()
     {
         int _yMin = 3;
         int _yMax = 6;
@@ -42,11 +42,21 @@ public class ship : MonoBehaviour
 
         Vector3 randomPosition = transform.position;
 
-        GoRight EscapeShip = Instantiate(_EscapeShip,new Vector3(randomPosition.x,randomPosition.y+randomY,randomPosition.z),Quaternion.identity);
+        GoRight EscapeShip = Instantiate(_EscapeShip, new Vector3(randomPosition.x, randomPosition.y + randomY, randomPosition.z), Quaternion.identity);
 
         EscapeShip.GoRightFunction();
 
-        Destroy(EscapeShip.gameObject, 15f);
+        Destroy(EscapeShip.gameObject, 12f);
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("Player"))
+        {
+
+            Destroy(collision.gameObject);
+        }
     }
 }

@@ -13,7 +13,7 @@ public class PickupObject : MonoBehaviour
         {
            
             AudioSource.PlayClipAtPoint(_Sound,transform.position);
-            Inventory._Instance.Addcoin(1);
+            Inventory._Instance.Addcoin(1,1);
             Destroy(gameObject);
         }
     }

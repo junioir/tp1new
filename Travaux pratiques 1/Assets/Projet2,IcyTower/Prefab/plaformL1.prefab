@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 363558550632453396}
   - component: {fileID: -7396994289845828566}
   m_Layer: 6
-  m_Name: plaform
+  m_Name: plaformL1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
