@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class LoadSpecificLevel : MonoBehaviour
 {
+    [SerializeField] private string SceneName;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Level2");
+            SceneManager.LoadScene(SceneName);
             
         }
     }
