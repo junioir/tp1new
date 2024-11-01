@@ -10,7 +10,7 @@ public class Playerspawn : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Player").transform.position = transform.position ;
 
-        GameObject.FindGameObjectWithTag("MainCamera").transform.position = transform.position;
+        
 
     }
 

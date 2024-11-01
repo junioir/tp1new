@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioClip[] _Playlist;
+
     [SerializeField] private AudioSource _Audiosource;
     private int _MusicIndex;
     void Start()
