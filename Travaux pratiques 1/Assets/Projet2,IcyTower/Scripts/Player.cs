@@ -10,18 +10,18 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;      // La couche qui représente le sol
     [SerializeField] private Transform _groundCheck;      // Point de vérification pour savoir si le joueur est au sol
     [SerializeField] private float _groundCheckRadius = 0.1f;  // Rayon de détection du sol
-    private bool _isGrounded;           // Est-ce que le joueur touche le sol ?
+    private bool _isGrounded;           
 
     [SerializeField] Animator animator;
-    [SerializeField] SpriteRenderer SpriteRenderer;
+    [SerializeField] SpriteRenderer SpriteRenderer; 
     [SerializeField] private Rigidbody2D _rb;
     internal float jumpForce;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
+        
     }
 
     void Update()
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
  } 
         
         else if(_velocity < -0.1f) {
-            SpriteRenderer.flipY = true;
+            SpriteRenderer.flipX = true;
         }
     }
 }
