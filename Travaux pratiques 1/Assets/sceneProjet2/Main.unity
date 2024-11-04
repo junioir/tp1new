@@ -174,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameInputField: {fileID: 620882205}
   _SceneName: Levels1
+  _FadeSystem: {fileID: 1642703234}
 --- !u!1 &225874945
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +719,7 @@ RectTransform:
   m_GameObject: {fileID: 620882203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4561758, y: 0.8123484, z: 1.0265}
+  m_LocalScale: {x: 0.49620748, y: 0.38345382, z: 1.0265}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 551738394}
@@ -924,7 +925,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c267d2a67c862c74d868d358b4881252, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c928d1f6da8fb67419cfdfbbe75c3b3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -944,7 +945,7 @@ Transform:
   m_GameObject: {fileID: 636476032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.88, y: -0.25000036, z: 0}
-  m_LocalScale: {x: 7.151924, y: 4.729903, z: 1.2386}
+  m_LocalScale: {x: 9.109834, y: 4.729903, z: 1.2386}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1081,7 +1082,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20.148972
+  orthographic size: 30.247086
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1106,7 +1107,7 @@ Transform:
   m_GameObject: {fileID: 1483938144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.29, y: -1.62, z: -87.2}
-  m_LocalScale: {x: 1.2037499, y: 1.15625, z: 1}
+  m_LocalScale: {x: 9.089399, y: 1.4886719, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1130,6 +1131,8 @@ MonoBehaviour:
   _maxHeight: 39
   _cameraSpeed: 1
   _followThreshold: 1
+  _textMeshProUGUI: {fileID: 0}
+  _gameOverPanel: {fileID: 0}
 --- !u!1 &1553066601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,8 +1275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Playlist:
-  - {fileID: 8300000, guid: 5f2d1ec1b4ffd2a4abacdc3b8b680f00, type: 3}
-  - {fileID: 8300000, guid: 9362dec1a70a09d41898a35cbc885c7f, type: 3}
+  - {fileID: 8300000, guid: cfb02ee396ba845439517fc08fcbd69b, type: 3}
+  - {fileID: 8300000, guid: 9ce9549a14853474fbf54a1d4af3478b, type: 3}
   _Audiosource: {fileID: 1553066603}
 --- !u!1 &1642703230
 GameObject:
@@ -1303,7 +1306,7 @@ RectTransform:
   m_GameObject: {fileID: 1642703230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4251603, y: 1.5014999, z: 1}
+  m_LocalScale: {x: 1.9355458, y: 1.5014999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 225874949}

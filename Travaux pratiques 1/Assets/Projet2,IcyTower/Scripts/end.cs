@@ -8,9 +8,18 @@ public class end : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI leaderboardText;
 
+    [SerializeField] private GameObject _gameOverPanel; // Référence au panel de Game Over
+
+    [SerializeField] private TextMeshProUGUI _textMeshProUGUI;
+
     void Start()
     {
         ShowLeaderboard();
+
+        _gameOverPanel.SetActive(true); // Active le panel de Game Over
+
+        _textMeshProUGUI.text = "Congrate you have WIN"; // Met à jour le texte de Game Over
+
     }
 
     void ShowLeaderboard()

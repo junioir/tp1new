@@ -8,7 +8,12 @@ public class GoRight : MonoBehaviour
 
 
     [SerializeField] private float _speed = 3f;
-    // Start is called before the first frame update
+
+
+    [SerializeField] private AudioClip _Sound;
+
+    [SerializeField] private AudioSource _Audiosource;
+
 
     public void GoRightFunction()
     {
@@ -23,6 +28,8 @@ public class GoRight : MonoBehaviour
         {
 
             Destroy(collision.gameObject);
+
+            AudioSource.PlayClipAtPoint(_Sound, transform.position);
         }
     }
 }

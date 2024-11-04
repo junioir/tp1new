@@ -8,6 +8,9 @@ TagManager:
   - Ground
   - FadeSystem
   - PlayerSpawn
+  - Panel
+  - Death
+  - Panelle
   layers:
   - Default
   - TransparentFX

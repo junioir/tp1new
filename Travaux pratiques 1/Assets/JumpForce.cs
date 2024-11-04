@@ -7,7 +7,13 @@ public class JumpForce : MonoBehaviour
 {
     [SerializeField] private float _jumpBoostMultiplier = 2f; 
 
-    [SerializeField] private float _boostDuration = 3f; 
+    [SerializeField] private float _boostDuration = 3f;
+
+
+    [SerializeField] private AudioClip _Sound;
+
+    [SerializeField] private AudioSource _Audiosource;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,7 +26,10 @@ public class JumpForce : MonoBehaviour
             {
                 // Appliquer l'augmentation temporaire de la force de saut
                 StartCoroutine(ApplyJumpBoost(players));
-                Destroy(players);
+
+                AudioSource.PlayClipAtPoint(_Sound, transform.position);
+
+                ;
             }
         }
     }

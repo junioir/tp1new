@@ -9,6 +9,11 @@ public class DeathZone : MonoBehaviour {
 
     private Animator _FadeSystem;
 
+
+    [SerializeField] private AudioClip _Sound;
+
+    [SerializeField] private AudioSource _Audiosource;
+
     private void Awake() {
     
         _playerSpwan = GameObject.FindGameObjectWithTag("PlayerSpawn").transform;
@@ -21,6 +26,8 @@ public class DeathZone : MonoBehaviour {
         if (collision.CompareTag("Player"))
         {
            StartCoroutine(replacePlayer(collision));
+
+            AudioSource.PlayClipAtPoint(_Sound, transform.position);
         }
     }
 

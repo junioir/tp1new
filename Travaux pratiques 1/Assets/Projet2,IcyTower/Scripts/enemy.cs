@@ -14,12 +14,18 @@ public class enemy : MonoBehaviour
     [SerializeField] private SpriteRenderer _graphics;
     [SerializeField] private GameObject _gameOverPanel; // Référence au panel de Game Over
     [SerializeField] private TextMeshProUGUI _textMeshProUGUI;
+    [SerializeField] private AudioClip _Sound;
+    [SerializeField] private AudioClip _AudioClipdefeat;
+    [SerializeField] private AudioSource _Audiosource;
 
 
+   /* private void Awake()
+    {
+        _gameOverPanel = GameObject.FindGameObjectWithTag("Panelle").GetComponent<GameObject>();
 
+        _textMeshProUGUI = GameObject.FindGameObjectWithTag("Death").GetComponent<TextMeshProUGUI>();
 
-    // [SerializeField] private AudioClip _Sound;
-    //  [SerializeField] private AudioSource _Audiosource;
+    }*/
 
     void Start()
     {
@@ -27,7 +33,7 @@ public class enemy : MonoBehaviour
 
         _gameOverPanel.SetActive(false);
 
-    }
+}
 
     // Update is called once per frame
     void Update()
@@ -42,7 +48,7 @@ public class enemy : MonoBehaviour
             _graphics.flipX = !_graphics.flipX;
 
 
-        }
+    }
 
 
         
@@ -53,9 +59,9 @@ public class enemy : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            //AudioClip.Play();
+            AudioSource.PlayClipAtPoint(_Sound, transform.position);
 
-           Destroy(collision.gameObject);
+            Destroy(collision.gameObject);
 
             ShowGameOver();
 
@@ -71,6 +77,15 @@ public class enemy : MonoBehaviour
         _gameOverPanel.SetActive(true); // Active le panel de Game Over
 
         _textMeshProUGUI.text = "Game Over"; // Met à jour le texte de Game Over
+
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.Stop();
+        }
+
+        AudioSource.PlayClipAtPoint(_AudioClipdefeat, transform.position);
     }
 
 }

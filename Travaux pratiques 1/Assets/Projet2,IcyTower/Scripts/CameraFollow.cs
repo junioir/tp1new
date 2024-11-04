@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
@@ -10,7 +11,15 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float _maxHeight = 20.0f; // Hauteur maximale de la caméra
     [SerializeField] private float _cameraSpeed = 1.0f; // Vitesse de montée de la caméra
     [SerializeField] private float _followThreshold = 1.0f; // Seuil pour suivre le joueur
+                                                            // [SerializeField] private TextMeshProUGUI _textMeshProUGUI;
+                                                            // [SerializeField] private GameObject _gameOverPanel;
 
+
+
+    private void Start()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     private void Update()
     {
         // La caméra monte constamment
@@ -30,10 +39,14 @@ public class CameraFollow : MonoBehaviour
         // Vérifier si le joueur est trop bas par rapport à la caméra
         if (_player.position.y < transform.position.y - _heightOffset)
         {
-            // Le joueur est en dehors du champ de vision, il perd
-            Debug.Log("Le joueur a péri !");
-            // Ici, vous pouvez appeler une méthode pour gérer la défaite du joueur
-            // Par exemple, appeler une méthode pour afficher un écran de défaite
+           // ShowGameOver();
         }
     }
+
+   /*private void ShowGameOver()
+    {
+        _gameOverPanel.SetActive(true); // Active le panel de Game Over
+
+        _textMeshProUGUI.text = "Game Over"; // Met à jour le texte de Game Over
+    }*/
 }
