@@ -33,17 +33,19 @@ public class Player : MonoBehaviour
         flip(_rb.velocity.x);
 
        float characterVelocity=Mathf.Abs(_rb.velocity.x);
-
         animator.SetFloat("_speed", characterVelocity);
-
+       
         if (_isGrounded && Input.GetKey(KeyCode.Space))
         {
             animator.SetBool("Isjumped", _isGrounded);
         }
-        
-    }
+        if (!_isGrounded)
+        {
+            animator.SetBool("Isjumped", false);
+        }
 
-    void Move()
+    }
+void Move()
     {
         // Déplacement horizontal du joueur
         float move = Input.GetAxis("Horizontal") * _moveSpeed;

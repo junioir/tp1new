@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ParallaxEffect : MonoBehaviour
 {
-    [SerializeField] private Transform[] _layers; // Les couches de parallax
-    [SerializeField] private float[] _parallaxScales; // Les échelles de parallax pour chaque couche
-    [SerializeField] private float _smoothing = 1f; // Lissage du mouvement
+    [SerializeField] private Transform[] _layers; 
+    [SerializeField] private float[] _parallaxScales; 
+    [SerializeField] private float _smoothing = 1f; 
 
-    private Transform _cam; // Référence à la caméra
-    private Vector3 _previousCamPosition; // Position précédente de la caméra
+    private Transform _cam; 
+    private Vector3 _previousCamPosition; 
 
     void Awake()
     {
-        _cam = Camera.main.transform; // Obtenir la caméra principale
+        _cam = Camera.main.transform; 
     }
 
     void Start()
     {
-        _previousCamPosition = _cam.position; // Initialiser la position précédente
+        _previousCamPosition = _cam.position; 
         _parallaxScales = new float[_layers.Length];
 
         // Calculer les échelles de parallax

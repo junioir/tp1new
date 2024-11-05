@@ -6,19 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/sceneProjet2/Main.unity
+    path: Assets/Projet2,IcyTower/sceneProjet2/Main.unity
     guid: 5d7976acb4f68f142a4be0c7cd236e0c
   - enabled: 1
-    path: Assets/sceneProjet2/Levels1.unity
+    path: Assets/Projet2,IcyTower/sceneProjet2/Levels1.unity
     guid: 37d382e5212a1bd4fbe05263c1f0c444
   - enabled: 1
-    path: Assets/sceneProjet2/Levels2.unity
+    path: Assets/Projet2,IcyTower/sceneProjet2/Levels2.unity
     guid: 228c86cd1f707214dae7af3e12bfa321
   - enabled: 1
-    path: Assets/sceneProjet2/Levels3.unity
+    path: Assets/Projet2,IcyTower/sceneProjet2/Levels3.unity
     guid: cd57a1d3964e80048939e31ada9ddf22
   - enabled: 1
-    path: Assets/sceneProjet2/EndMainu.unity
+    path: Assets/Projet2,IcyTower/sceneProjet2/EndMainu.unity
     guid: 74dda54afe8b88647bf79be808fa22fe
   - enabled: 0
     path: Assets/sceneProjet2/Level1.unity

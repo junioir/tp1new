@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Transform _player; // Référence au joueur
-    [SerializeField] private float _heightOffset = 2.0f; // Décalage de hauteur par rapport au joueur
-    [SerializeField] private float _minHeight = 0.0f; // Hauteur minimale de la caméra
-    [SerializeField] private float _maxHeight = 20.0f; // Hauteur maximale de la caméra
-    [SerializeField] private float _cameraSpeed = 1.0f; // Vitesse de montée de la caméra
-    [SerializeField] private float _followThreshold = 1.0f; // Seuil pour suivre le joueur
-                                                            // [SerializeField] private TextMeshProUGUI _textMeshProUGUI;
-                                                            // [SerializeField] private GameObject _gameOverPanel;
-
+    [SerializeField] private Transform _player; 
+    [SerializeField] private float _heightOffset = 2.0f; 
+    [SerializeField] private float _minHeight = 0.0f; 
+    [SerializeField] private float _maxHeight = 20.0f; 
+    [SerializeField] private float _cameraSpeed = 1.0f; 
+    [SerializeField] private float _followThreshold = 1.0f; 
+    [SerializeField] private GameObject _gameOverPanel; 
+    [SerializeField] private TextMeshProUGUI _textMeshProUGUI;
+    [SerializeField] private AudioClip _AudioClipdefeat;
+    [SerializeField] private AudioSource _Audiosource;
+    
 
 
     private void Start()
@@ -36,17 +40,38 @@ public class CameraFollow : MonoBehaviour
             transform.position = newPosition;
         }
 
-        // Vérifier si le joueur est trop bas par rapport à la caméra
-        if (_player.position.y < transform.position.y - _heightOffset)
-        {
-           // ShowGameOver();
-        }
-    }
+         }
 
-   /*private void ShowGameOver()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("Player"))
+        {
+           ShowGameOver();
+          }
+    }
+    private void ShowGameOver()
     {
         _gameOverPanel.SetActive(true); // Active le panel de Game Over
 
         _textMeshProUGUI.text = "Game Over"; // Met à jour le texte de Game Over
-    }*/
+
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+
+       
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.Stop();
+        }
+
+       AudioSource.PlayClipAtPoint(_AudioClipdefeat, transform.position);
+
+       CameraFollow cameraController = FindObjectOfType<CameraFollow>();
+        if (cameraController != null)
+        {
+            cameraController.enabled = false;
+        }
+
+    }
+
 }
